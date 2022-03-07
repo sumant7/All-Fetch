@@ -1,5 +1,6 @@
 # All-Fetch
-## Basic Applications of Fetch:
+## Try Basic Applications of Fetch:
+https://all-fetch.vercel.app/ 
 
 ### Get Text
 Displays Text from a local .txt file
