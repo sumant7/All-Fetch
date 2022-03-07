@@ -29,13 +29,13 @@ function getUsers(){
     fetch('users.json')
     .then((res)=>res.json())
     .then((data)=>{
-        let output= '<h3>Users</h3>'
+        let output= '<h3 class="mb-3">Users</h3>'
         data.forEach(function(user){
             output += `
-            <ul>
-                <li>ID: ${user.id} </li>
-                <li>Name: ${user.name} </li>
-                <li>Email: ${user.email} </li>
+            <ul class="list-group mb-3">
+                <li class="list-group-item">ID: ${user.id} </li>
+                <li class="list-group-item">Name: ${user.name} </li>
+                <li class="list-group-item">Email: ${user.email} </li>
             </ul>
             `
         })
@@ -62,10 +62,10 @@ function getPosts(){
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then((res)=>res.json())
     .then((data)=>{
-        let output= '<h3>Posts</h3>'
+        let output= '<h3 class="mb-3">Posts</h3>'
         data.forEach(function(post){
             output += `
-        <div>
+        <div class="card card-body mb-3">
             <h3>${post.title}</h3>
             <p>${post.body}</p>
         </div>   
