@@ -5,7 +5,7 @@ function getText(){
     fetch('sample.txt')
     .then((res)=>res.text())
     .then((data)=>{
-        let output= document.getElementById('output')
+        let output= document.getElementById('outputText')
         if(output.innerHTML=="")
         {
             output.innerHTML=data
@@ -16,6 +16,8 @@ function getText(){
         }
     })
 }
+
+
 
 
 
@@ -37,7 +39,7 @@ function getUsers(){
             </ul>
             `
         })
-        a = document.getElementById('output')
+        a = document.getElementById('outputUsers')
         if(a.innerHTML=="")
         {
             a.innerHTML=output
@@ -48,3 +50,39 @@ function getUsers(){
         }
     })
 }
+
+
+
+
+
+//get Posts from Json PlaceHolder API
+document.getElementById('getPosts').addEventListener('click',getPosts)
+
+function getPosts(){
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((res)=>res.json())
+    .then((data)=>{
+        let output= '<h3>Posts</h3>'
+        data.forEach(function(post){
+            output += `
+        <div>
+            <h3>${post.title}</h3>
+            <p>${post.body}</p>
+        </div>   
+            `
+        })
+        a = document.getElementById('outputPosts')
+        if(a.innerHTML=="")
+        {
+            a.innerHTML=output
+        }
+        else
+        {
+            a.innerHTML=''
+        }
+    })
+}
+
+
+
+
