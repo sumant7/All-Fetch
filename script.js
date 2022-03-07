@@ -86,3 +86,24 @@ function getPosts(){
 
 
 
+//post request using form
+document.getElementById('addPost').addEventListener('submit',addPost)
+
+function addPost(e){
+    //this prevents the default action which is making a file when form is submitted
+    e.preventDefault()
+    let title = document.getElementById('title').value
+    let body = document.getElementById('body').value
+    fetch('https://jsonplaceholder.typicode.com/posts',{
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({title:title, body:body})
+    })
+    .then((res)=>res.json())
+    .then((data)=> console.log(data))
+}
+
+

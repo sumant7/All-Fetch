@@ -9,3 +9,6 @@ Displays user List from a local .json file
 
 ### Get Posts
 Displays Info about 100 posts from JsonPlaceHolder WebAPI
+
+### Post request
+Standard Post request to JsonPlaceHolder WebAPI
