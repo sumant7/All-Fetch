@@ -2,14 +2,6 @@
 document.getElementById('getText').addEventListener('click',getText)
 
 function getText(){
-    // fetch('sample.txt')  //basic function approach
-    // .then(function(res){
-    //     return res.text()
-    // })
-    // .then(function(data){
-    //     console.log(data)
-    // })
-    //arrow function is cleaner
     fetch('sample.txt')
     .then((res)=>res.text())
     .then((data)=>{
@@ -21,6 +13,38 @@ function getText(){
         else
         {
             output.innerHTML=''
+        }
+    })
+}
+
+
+
+
+//getJson
+document.getElementById('getUsers').addEventListener('click',getUsers)
+
+function getUsers(){
+    fetch('users.json')
+    .then((res)=>res.json())
+    .then((data)=>{
+        let output= '<h3>Users</h3>'
+        data.forEach(function(user){
+            output += `
+            <ul>
+                <li>ID: ${user.id} </li>
+                <li>Name: ${user.name} </li>
+                <li>Email: ${user.email} </li>
+            </ul>
+            `
+        })
+        a = document.getElementById('output')
+        if(a.innerHTML=="")
+        {
+            a.innerHTML=output
+        }
+        else
+        {
+            a.innerHTML=''
         }
     })
 }
